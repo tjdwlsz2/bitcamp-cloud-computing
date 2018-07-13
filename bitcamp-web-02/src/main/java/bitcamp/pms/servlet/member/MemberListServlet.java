@@ -43,7 +43,7 @@ public class MemberListServlet extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
             try (
                 Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/studydb",
+                    "jdbc:mysql://52.79.239.104:3306/studydb",
                     "study", "1111");
                 PreparedStatement stmt = con.prepareStatement(
                     "select mid, email from pms2_member");
