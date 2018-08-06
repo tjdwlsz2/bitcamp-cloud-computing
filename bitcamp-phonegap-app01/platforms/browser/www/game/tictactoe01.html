@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <title>tiatactoe</title>
+<style>
+tr,td {
+    border:solid 2px red;
+    width:100px;
+    height:100px;
+}
+table {
+    border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+<h1>Tic-Tac-Toe 게임</h1>
+<a href="../index.html">시작페이지</a>
+
+<table id="tic-tac-toe">
+    <tr>
+        <td id="b0" class="cell"></td>
+        <td id="b1" class="cell"></td>
+        <td id="b2" class="cell"></td>
+    </tr>
+    <tr>
+        <td id="b3" class="cell"></td>
+        <td id="b4" class="cell"></td>
+        <td id="b5" class="cell"></td>
+    </tr>
+    <tr>
+        <td id="b6" class="cell"></td>
+        <td id="b7" class="cell"></td>
+        <td id="b8" class="cell"></td>
+    </tr>
+</table>
+<div class="endgame">
+  <div class="text"></div>
+</div>
+<button onClick="startGame()">Replay</button>
+
+<script>
+"use strict"
+
+var origBoard;
+const huPlayer = '0';
+const aiPlayer = 'X';
+const winCombos = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [0, 4, 8],
+    [6, 4, 2],
+]
+
+const cells = document.querySelectorAll('.cell');
+startGame();
+
+function startGame(){
+  document.querySelector(".endgame")
+  origBoard = Array.from(Array(9).keys());
+  for (var i = 0; i < cells.length; i++) {
+   cells[i].innerText = '';
+   cells[i].style.removeProperty('background-color');
+   cells[i].addEventListener('click', turnClick, false);
+  }
+}
+
+function turnClick(square) {
+  console.log(square.taget.id)
+}
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
